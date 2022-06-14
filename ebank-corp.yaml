@@ -1,4 +1,4 @@
-apiVersion: apps.openliberty.io/v1beta2
+﻿apiVersion: apps.openliberty.io/v1beta2
 kind: OpenLibertyApplication
 metadata:
   name: ebank-corp
@@ -12,6 +12,7 @@ spec:
     requests:
       memory: 1024Mi
       cpu: 500m
+  applicationVersion: 1.0.0
   applicationImage: ebank-corp
   pullPolicy: IfNotPresent
   replicas: 1
