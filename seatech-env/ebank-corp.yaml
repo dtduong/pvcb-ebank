@@ -16,11 +16,11 @@ spec:
   applicationImage: ebank-corp
   env:
     - name: DB_CONNECTION
-      value: "jdbc:oracle:thin:@10.0.15.15:1521/khdn"
+      value: "jdbc:oracle:thin:@192.168.1.89:1521/ebank"
     - name: DB_USER
-      value: "IBMB_UAT"
+      value: "test"
     - name: DB_PASS
-      value: "IBMB_UAT"
+      value: "test"
     - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
