@@ -13,7 +13,7 @@ spec:
       cpu: 500m
       memory: 1024Mi
   applicationImage: >-
-    quay.io/dtduong/ebank-scheduler
+    ebank-scheduler
   env:
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@10.0.15.15:1521/khdn"
