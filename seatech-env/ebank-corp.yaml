@@ -32,9 +32,9 @@ spec:
     - name: OTPControl
       value: "open"
     - name: UrlGateWay
-      value: "http://10.0.15.140:8081/IBRestService/system"
+      value: "http://103.121.91.49:8081/IBRestService/system"
     - name: UrlAuthGateWay
-      value: "http://10.0.15.140"
+      value: "hhttp://103.121.91.49:8083"
     - name: UrlPrivateKey
       value: "signature/privateKeyIDVN_UAT.key"
     - name: UrlPublicKey
@@ -48,7 +48,7 @@ spec:
     - name: FolderLogTimeFormat
       value: "dd-MM-yyyy"
     - name: UrlBillingTopUpGateWay
-      value: "http://192.168.15.130:8080/PGService/outwardservice"
+      value: "http://103.121.91.49:8087/PGService/outwardservice"
     - name: BillingTopUpWrapper
       value: "http://pgservice.pvcombank.com.vn"
     - name: host
