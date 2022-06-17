@@ -2,7 +2,7 @@
 kind: OpenLibertyApplication
 metadata:
   name: ebank-scheduler
-  namespace: ebank-scheduler
+  namespace: ebank-pvcb
 spec:
   expose: true
   resources:

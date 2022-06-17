@@ -2,7 +2,7 @@
 kind: OpenLibertyApplication
 metadata:
   name: ebank-transaction-rule-check
-  namespace: ebank-transaction-rule-check
+  namespace: ebank-pvcb
 spec:
   expose: true
   resources:
