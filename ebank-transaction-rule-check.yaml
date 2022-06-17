@@ -1,8 +1,8 @@
 ﻿apiVersion: apps.openliberty.io/v1beta2
 kind: OpenLibertyApplication
 metadata:
-  name: ebank-api-server
-  namespace: ebank-pvcb
+  name: ebank-transaction-rule-check
+  namespace: ebank-transaction-rule-check
 spec:
   expose: true
   resources:
@@ -13,10 +13,7 @@ spec:
       cpu: 500m
       memory: 1024Mi
   applicationImage: >-
-    ebank-api-server
-  pullPolicy: IfNotPresent
-  replicas: 1
-  applicationName: ebank-api-server
+    ebank-transaction-rule-check
   env:
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@10.0.15.15:1521/khdn"
@@ -70,3 +67,6 @@ spec:
       value: "10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092"
     - name: KafkaTopic
       value: "uat.notification.sendmail.1"
+  pullPolicy: IfNotPresent
+  replicas: 1
+  applicationName: ebank-transaction-rule-check
