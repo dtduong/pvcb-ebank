@@ -65,6 +65,6 @@ spec:
       value: "N"
     - name: isCheckOTP
       value: "false"      
-  pullPolicy: Allways
+  pullPolicy: Always
   replicas: 1
   applicationName: ebank-corp
