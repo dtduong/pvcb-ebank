@@ -13,7 +13,7 @@ spec:
       cpu: 500m
       memory: 1024Mi
   applicationImage: >-
-    ebank-admin
+    quay.io/dtduong/ebank-admin:1.0.0
   env:
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@192.168.1.89:1521/ebank"
@@ -69,6 +69,6 @@ spec:
       value: "10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092"
     - name: KafkaTopic
       value: "uat.notification.sendmail.1"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   replicas: 1
   applicationName: ebank-admin
