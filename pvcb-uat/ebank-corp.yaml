@@ -1,7 +1,7 @@
 ﻿apiVersion: apps.openliberty.io/v1beta2
 kind: OpenLibertyApplication
 metadata:
-  namespace: ebank-pvcb
+  namespace: nhs-app-ibkhdn-uat
   name: ebank-corp
 spec:
   expose: true
