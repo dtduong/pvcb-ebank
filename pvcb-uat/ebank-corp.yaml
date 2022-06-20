@@ -62,7 +62,7 @@ spec:
     - name: EnableSMSOTP
       value: "N"
     - name: isCheckOTP
-      value: "false"      
+      value: "false"
   pullPolicy: IfNotPresent
   replicas: 1
   applicationName: ebank-corp
