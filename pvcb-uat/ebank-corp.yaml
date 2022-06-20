@@ -13,7 +13,7 @@ spec:
       memory: 1024Mi
       cpu: 500m
   applicationVersion: 1.0.0
-  applicationImage: ebank-corp
+  applicationImage: quay.io/dtduong/ebank-corp:1.0.0
   env:
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@10.0.15.15:1521/khdn"
