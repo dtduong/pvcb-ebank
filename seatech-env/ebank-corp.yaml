@@ -16,11 +16,11 @@ spec:
   applicationImage: quay.io/dtduong/ebank-corp:1.0.0
   env:
     - name: DB_CONNECTION
-      value: "jdbc:oracle:thin:@192.168.1.89:1521/ebank"
+      value: "jdbc:oracle:thin:@192.168.1.89:1522/ebank"
     - name: DB_USER
-      value: "test"
+      value: "UAT"
     - name: DB_PASS
-      value: "test"
+      value: "admin"
     - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
