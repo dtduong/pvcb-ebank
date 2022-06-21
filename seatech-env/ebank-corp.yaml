@@ -16,7 +16,7 @@ spec:
   applicationImage: quay.io/dtduong/ebank-corp:1.0.0
   env:
     - name: DB_CONNECTION
-      value: "jdbc:oracle:thin:@192.168.1.89:1522/ebank"
+      value: "jdbc:oracle:thin:@118.69.69.160:1522/EBANK"
     - name: DB_USER
       value: "UAT"
     - name: DB_PASS
