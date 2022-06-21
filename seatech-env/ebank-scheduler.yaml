@@ -16,11 +16,11 @@ spec:
     ebank-scheduler
   env:
     - name: DB_CONNECTION
-      value: "jdbc:oracle:thin:@192.168.1.89:1521/ebank"
+      value: "jdbc:oracle:thin:@118.69.69.160:1521/ebank"
     - name: DB_USER
-      value: "test"
+      value: "UAT"
     - name: DB_PASS
-      value: "test"
+      value: "admin"
     - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
@@ -32,9 +32,9 @@ spec:
     - name: OTPControl
       value: "open"
     - name: UrlGateWay
-      value: "http://10.0.15.140:8081/IBRestService/system"
+      value: "http://103.121.91.49:8081/IBRestService/system"
     - name: UrlAuthGateWay
-      value: "http://10.0.15.140"
+      value: "http://103.121.91.49"
     - name: UrlPrivateKey
       value: "signature/privateKeyIDVN_UAT.key"
     - name: UrlPublicKey
@@ -48,7 +48,7 @@ spec:
     - name: FolderLogTimeFormat
       value: "dd-MM-yyyy"
     - name: UrlBillingTopUpGateWay
-      value: "http://192.168.15.130:8080/PGService/outwardservice"
+      value: "http://103.121.91.49:8087/PGService/outwardservice"
     - name: BillingTopUpWrapper
       value: "http://pgservice.pvcombank.com.vn"
     - name: host
@@ -69,6 +69,20 @@ spec:
       value: "10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092"
     - name: KafkaTopic
       value: "uat.notification.sendmail.1"
+    - name: appId
+      value: "IB"
+    - name: sysCode
+      value: "BB"
+    - name: rootAPIPath
+      value: "/api"
+    - name: issuer
+      value: "ms.seatechit.com"
+    - name: secretKey
+      value: "1389098f4a9bc5ea4554d82d44730d530fd83dfad5eaaa31b8f18751ca05f63a"
+    - name: tokenExpireTime
+      value: "30"
+    - name: IPAuthSecret
+      value: "t0p s3cr3t"     
   pullPolicy: IfNotPresent
   replicas: 1
   applicationName: ebank-scheduler

@@ -1,72 +1,89 @@
 ﻿apiVersion: apps.openliberty.io/v1beta2
 kind: OpenLibertyApplication
 metadata:
+  namespace: nhs-app-ibkhdn-uat
   name: ebank-scheduler
-  namespace: ebank-pvcb
 spec:
   expose: true
   resources:
     limits:
-      cpu: 4000m
-      memory: 4096Mi
+      cpu: 2000m
+      memory: 2048Mi
+      ephemeral-storage: 5Gi
     requests:
       cpu: 500m
       memory: 500Mi
-  applicationImage: >-
-    quay.io/dtduong/ebank-scheduler:1.0.0
+      ephemeral-storage: 5Gi
+  applicationImage: 'quay.io/dtduong/ebank-scheduler:1.0.0'
   env:
     - name: DB_CONNECTION
-      value: "jdbc:oracle:thin:@10.0.15.15:1521/khdn"
+      value: 'jdbc:oracle:thin:@10.0.15.15:1521/khdn'
     - name: DB_USER
-      value: "IBMB_UAT"
+      value: test
     - name: DB_PASS
-      value: "IBMB_UAT"
+      value: admin
     - name: retailURL
-      value: "http://103.121.91.49:9091/IBSRetail/"
+      value: 'http://103.121.91.49:9091/IBSRetail/'
     - name: corpURL
-      value: "https://103.121.91.49/IBSCorporate/"
+      value: 'https://103.121.91.49/IBSCorporate/'
     - name: adminURL
-      value: "https://103.121.91.49/IBSAdmin/"
+      value: 'https://103.121.91.49/IBSAdmin/'
     - name: OTPControl
-      value: "open"
+      value: open
     - name: UrlGateWay
-      value: "http://10.0.15.140:8081/IBRestService/system"
+      value: 'http://10.0.15.140:8081/IBRestService/system'
     - name: UrlAuthGateWay
-      value: "http://10.0.15.140"
+      value: 'http://10.0.15.140'
     - name: UrlPrivateKey
-      value: "signature/privateKeyIDVN_UAT.key"
+      value: signature/privateKeyIDVN_UAT.key
     - name: UrlPublicKey
-      value: "signature/publicKeyIDVN_UAT.pub"
+      value: signature/publicKeyIDVN_UAT.pub
     - name: UrlCheckRule
-      value: "http://192.168.1.209:9099/IBS-TransactionRule-Check/checkRule"
+      value: 'http://192.168.1.209:9099/IBS-TransactionRule-Check/checkRule'
     - name: CheckTransRuleAPI
-      value: "true"
+      value: 'true'
     - name: RequestType_API
-      value: "prod"
+      value: prod
     - name: FolderLogTimeFormat
-      value: "dd-MM-yyyy"
+      value: dd-MM-yyyy
     - name: UrlBillingTopUpGateWay
-      value: "http://192.168.15.130:8080/PGService/outwardservice"
+      value: 'http://192.168.15.130:8080/PGService/outwardservice'
     - name: BillingTopUpWrapper
-      value: "http://pgservice.pvcombank.com.vn"
+      value: 'http://pgservice.pvcombank.com.vn'
     - name: host
-      value: "http://103.121.91.49:8081"
+      value: 'http://103.121.91.49:8081'
     - name: hostSMS
-      value: "http://103.121.91.49:8089"
+      value: 'http://103.121.91.49:8089'
     - name: linkPointVN
-      value: "https://www.pvcombank.com.vn/san-pham/ca-nhan/dich-vu-the/the-pvcombank-mastercard-platinum"
+      value: >-
+        https://www.pvcombank.com.vn/san-pham/ca-nhan/dich-vu-the/the-pvcombank-mastercard-platinum
     - name: linkPointEN
-      value: "https://www.pvcombank.com.vn/san-pham/ca-nhan/dich-vu-the/the-pvcombank-mastercard-platinum"
+      value: >-
+        https://www.pvcombank.com.vn/san-pham/ca-nhan/dich-vu-the/the-pvcombank-mastercard-platinum
     - name: APICheckLogin
-      value: "N"
+      value: 'N'
     - name: EnableSMSOTP
-      value: "N"
+      value: 'N'
     - name: isCheckOTP
-      value: "false"      
+      value: 'false'
     - name: KafkaBootstrpServers
-      value: "10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092"
+      value: '10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092'
     - name: KafkaTopic
-      value: "uat.notification.sendmail.1"
+      value: uat.notification.sendmail.1
+    - name: appId
+      value: IB
+    - name: sysCode
+      value: BB
+    - name: rootAPIPath
+      value: /api
+    - name: issuer
+      value: ms.seatechit.com
+    - name: secretKey
+      value: 1389098f4a9bc5ea4554d82d44730d530fd83dfad5eaaa31b8f18751ca05f63a
+    - name: tokenExpireTime
+      value: '30'
+    - name: IPAuthSecret
+      value: t0p s3cr3t
   pullPolicy: Always
   replicas: 1
   applicationName: ebank-scheduler

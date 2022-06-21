@@ -11,7 +11,7 @@ spec:
       memory: 4096Mi
     requests:
       cpu: 500m
-      memory: 1024Mi
+      memory: 500Mi
   applicationImage: >-
     ebank-transaction-rule-check
   env:
