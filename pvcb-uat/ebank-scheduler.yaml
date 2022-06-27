@@ -25,9 +25,9 @@ spec:
     - name: retailURL
       value: 'http://103.121.91.49:9091/IBSRetail/'
     - name: corpURL
-      value: 'https://103.121.91.49/IBSCorporate/'
+      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
     - name: adminURL
-      value: 'https://103.121.91.49/IBSAdmin/'
+      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
     - name: OTPControl
       value: open
     - name: UrlGateWay
