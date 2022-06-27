@@ -1,3 +1,9 @@
+--------------------
+Thông tin môi trường cty
+App: master: 1.205/node 1: 182/Node 2: 195. 
+User root/seatech@4321
+DB: .10.159
+----------------------
 1. Export war theo đúng cấu trúc thư mục
 2. Push git
 Git: http://dc.seatechit.com.vn:8888/duongdt/pvcb-deployment.git
