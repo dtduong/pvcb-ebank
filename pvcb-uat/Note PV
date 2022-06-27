@@ -1,0 +1,94 @@
+1. Export war theo đúng cấu trúc thư mục
+2. Push git
+Git: http://dc.seatechit.com.vn:8888/duongdt/pvcb-deployment.git
+3. Pull trên server 205
+4. Depoy từng thành phần
+4.1 cd 01.ebank-corp
+Chạy sh deploy
+	--> bfc062 size: 4092
+		Push image success
+		deployment.apps/ebank-corp created
+		service/ebank-corp-service unchanged
+	--> Check
+	http://192.168.1.205:32100/metrics
+	http://192.168.1.205:32100/IBSCorporate/Request
+4.2
+4.3
+4.4
+4.5
+5. Push image lên quay.io
+5.1 Quay.io
+	+ https://quay.io/repository/dtduong/ebank-corp?tab=tags
+	+ https://quay.io/repository/dtduong/ebank-admin?tab=tags
+	+ https://quay.io/repository/dtduong/ebank-api-server?tab=tags
+	+ https://quay.io/repository/dtduong/ebank-scheduler?tab=tags
+	+ https://quay.io/repository/dtduong/ebank-transaction-rule-check?tab=tags
+	+ Quy tắc: Nếu fix bug thay đổi nhỏ tăng tag từ 1.0.1 --> 1.0.2
+5.2 Tìm docker thuộc node nào
+
+[root@master 01.ebank-corp]# kubectl get pod -o wide
+NAME                                            READY   STATUS    RESTARTS   AGE     IP               NODE    NOMINATED NODE   READINESS GATES
+ebank-api-server-6d855f89c6-p54h4               1/1     Running   0          3d1h    172.16.166.191   node1   <none>           <none>
+ebank-corp-76677bd54f-m4mw8                     1/1     Running   0          18m     172.16.166.131   node1   <none>           <none>
+ebank-scheduler-5d6bf6d8cf-bw2zf                1/1     Running   0          4d22h   172.16.166.180   node1   <none>           <none>
+ebank-transaction-rule-check-779fd547cc-m6vg9   1/1     Running   0          4d22h   172.16.166.184   node1   <none>           <none>
+
+5.3 ssh vào no3de chứa container
+[root@node1 ~]# docker ps | grep ebank-corp
+cb18e805528a   master:5000/ebank-corp                            "/opt/ol/helpers/run…"   20 minutes ago   Up 20 minutes                    ***********************************************************                                                                              k8s_ebank-corp-container_ebank-corp-76677bd54f-m4mw8_default_c1621780-1b87-4971-864c-f76768ed9445_0
+84cfc831f3af   k8s.gcr.io/pause:3.2                              "/pause"                 21 minutes ago   Up 21 minutes                                                                                                  k8s_POD_ebank-corp-76677bd54f-m4mw8_default_c1621780-1b87-4971-864c-f76768ed9445_0
+
+[root@node1 ~]# docker login quay.io
+Authenticating with existing credentials...
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[root@node1 ~]# docker commit cb18e805528a quay.io/dtduong/ebank-corp:1.0.2
+sha256:b0321295a3e542b7e8cfc4f418ff319db40210399f593289b6dad6eaf76b7c82
+[root@node1 ~]# docker push quay.io/dtduong/ebank-corp:1.0.2
+The push refers to repository [quay.io/dtduong/ebank-corp]
+87e0d25b8eb0: Pushing [==================================================>]  65.28MB
+bbadf7c9b3e8: Pushing  4.608kB
+edad78a51502: Pushing [===>                                               ]  17.24MB/234.6MB
+ba87ab2be7d4: Layer already exists
+689a95558cd4: Pushing [==================================================>]  6.144kB
+947be948e172: Waiting
+1b0a8501de61: Waiting
+69d8b433175b: Waiting
+799165958587: Waiting
+7259d57d5159: Waiting
+5eaf9c37080c: Waiting
+f7ded7637f64: Waiting
+90c96ba8c581: Waiting
+5c3d6b88be21: Waiting
+57960fcafaf6: Waiting
+979d7da0758a: Waiting
+9434c71cc3cf: Waiting
+ef5d9ad2a541: Waiting
+
+
+------------------- Image build & test done -------------------
+Deploy PVCB
+
+1- Cài đặt oc client tool tạo biến môi trường 
+2- Bật VPN PVCB
+3- Login vào https://oauth-openshift.apps.ocp4-dev03.pvcomtestocp.com/login/ldap?then=%2Foauth%2Fauthorize%3Fclient_id%3Dopenshift-browser-client%26idp%3Dldap%26redirect_uri%3Dhttps%253A%252F%252Foauth-openshift.apps.ocp4-dev03.pvcomtestocp.com%252Foauth%252Ftoken%252Fdisplay%26response_type%3Dcode
+
+	- ngocpm/Miuyeu@123
+4- oc login
+oc login --token=sha256~2j0e6-HgK33C7KedkweWrSX34d1CbpclladwCVEiNeQ --server=https://api.ocp4-dev03.pvcomtestocp.com:6443
+	C:\Users\DuongDT>oc project nhs-app-ibkhdn-uat
+	Already on project "nhs-app-ibkhdn-uat" on server "https://api.ocp4-dev03.pvcomtestocp.com:6443".
+
+3- Apply file deployment
+d:\CTY\Seatech\PVCombank\05.UAT\yaml\pvcb-ebank\pvcb-uat>oc get pod
+d:\CTY\Seatech\PVCombank\05.UAT\yaml\pvcb-ebank\pvcb-uat>oc apply -f ebank-corp.yaml
+4- Healtcheck
+https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate
+https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/metrics
+
+
+
+
