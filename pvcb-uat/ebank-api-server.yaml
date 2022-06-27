@@ -2,7 +2,7 @@
 kind: OpenLibertyApplication
 metadata:
   name: ebank-api-server
-  namespace: ebank-pvcb
+  namespace: nhs-app-ibkhdn-uat
 spec:
   expose: true
   resources:
@@ -35,7 +35,7 @@ spec:
     - name: UrlGateWay
       value: "http://10.0.15.140:8081/IBRestService/system"
     - name: UrlAuthGateWay
-      value: "http://10.0.15.140"
+      value: "http://10.0.15.50"
     - name: UrlPrivateKey
       value: "signature/privateKeyIDVN_UAT.key"
     - name: UrlPublicKey
