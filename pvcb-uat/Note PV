@@ -89,6 +89,14 @@ d:\CTY\Seatech\PVCombank\05.UAT\yaml\pvcb-ebank\pvcb-uat>oc apply -f ebank-corp.
 https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate
 https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/metrics
 
+---------------------------------------
+Login vào server ocp
+https://console-openshift-console.apps.ocp4-dev03.pvcomtestocp.com/k8s/ns/nhs-app-ibkhdn-uat/pods
 
 
+
+==============================================
+Check hệ thống
+oc exec  -n nhs-app-ibkhdn-uat  ebank-corp-79d88d44d-bb79q  -- tar cf - logs/ | tar xf - -C d:\CTY\Seatech\PVCombank\logs\
+curl -vv telnet://118.69.69.160:1521
 
