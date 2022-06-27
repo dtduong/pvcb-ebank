@@ -11,6 +11,31 @@ Git: http://dc.seatechit.com.vn:8888/duongdt/pvcb-deployment.git
 4. Depoy từng thành phần
 4.1 cd 01.ebank-corp
 Chạy sh deploy
+	--> build result
+	Sending build context to Docker daemon  177.6MB
+	Step 1/10 : FROM icr.io/appcafe/open-liberty:full-java8-openj9-ubi
+	 ---> 5ae33a284925
+	Step 2/10 : USER root
+	 ---> Using cache
+	 ---> 13f1022f02a9
+	Step 3/10 : COPY --chown=1001:0 IBS-Schedule-Center.war /config/dropins/scheduler.war
+	 ---> 59b208594a23
+	Step 4/10 : COPY --chown=1001:0 server.xml /config/
+	 ---> 1ca25d68d062
+	Step 5/10 : COPY --chown=1001:0 server.env /config/
+	 ---> e71f2a0c4f6a
+	Step 6/10 : COPY --chown=1001:0 jvm.options /config/shared/jvm.options
+	 ---> 75abcc942875
+	Step 7/10 : RUN chown -R 1001:0  /config
+	 ---> Running in 4472d073a8c1
+	Removing intermediate container 4472d073a8c1
+	 ---> 7644011c2887
+	Step 8/10 : RUN configure.sh
+	 ---> Running in 41b34ac781be
+Kiểm tra config có thành công hay khong?
+Vào master node và chạy lệnh 
+docker exec -it 41b34ac781be /bin/bash
+tail -1000f /logs/messages.log
 	--> bfc062 size: 4092
 		Push image success
 		deployment.apps/ebank-corp created
@@ -18,6 +43,7 @@ Chạy sh deploy
 	--> Check
 	http://192.168.1.205:32100/metrics
 	http://192.168.1.205:32100/IBSCorporate/Request
+	
 4.2
 4.3
 4.4
@@ -76,6 +102,7 @@ ef5d9ad2a541: Waiting
 
 
 ------------------- Image build & test done -------------------
+=======================================================================================================
 Deploy PVCB
 
 1- Cài đặt oc client tool tạo biến môi trường 
@@ -100,9 +127,14 @@ Login vào server ocp
 https://console-openshift-console.apps.ocp4-dev03.pvcomtestocp.com/k8s/ns/nhs-app-ibkhdn-uat/pods
 
 
+==============================================
+Check hệ thống ở Seatech
+kubectl exec -it <pod> /bin/bash
+tail -1000f /logs/messages.log
 
 ==============================================
-Check hệ thống
+
+Check hệ thống trên PV
 oc exec  -n nhs-app-ibkhdn-uat  ebank-corp-79d88d44d-bb79q  -- tar cf - logs/ | tar xf - -C d:\CTY\Seatech\PVCombank\logs\
 curl -vv telnet://118.69.69.160:1521
 
