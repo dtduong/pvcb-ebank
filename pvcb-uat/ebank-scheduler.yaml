@@ -23,7 +23,7 @@ spec:
     - name: DB_PASS
       value: admin
     - name: retailURL
-      value: 'http://103.121.91.49:9091/IBSRetail/'
+      value: 'https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/'
     - name: corpURL
       value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
     - name: adminURL
@@ -51,9 +51,9 @@ spec:
     - name: BillingTopUpWrapper
       value: 'http://pgservice.pvcombank.com.vn'
     - name: host
-      value: 'http://103.121.91.49:8081'
+      value: 'http://10.0.15.140:8081'
     - name: hostSMS
-      value: 'http://103.121.91.49:8089'
+      value: 'http://10.0.15.68:8080'
     - name: linkPointVN
       value: >-
         https://www.pvcombank.com.vn/san-pham/ca-nhan/dich-vu-the/the-pvcombank-mastercard-platinum
