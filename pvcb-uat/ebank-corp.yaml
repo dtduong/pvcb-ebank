@@ -39,7 +39,7 @@ spec:
     - name: UrlPublicKey
       value: "signature/publicKeyIDVN_UAT.pub"
     - name: UrlCheckRule
-      value: "http://192.168.1.209:9099/IBS-TransactionRule-Check/checkRule"
+      value: "http://ebank-transaction-rule-check-nhs-app-ibkhdn-uat.apps.ocp4-dev03.pvcomtestocp.com/ebank-transaction-rule-check/checkRule"
     - name: CheckTransRuleAPI
       value: "true"
     - name: RequestType_API
