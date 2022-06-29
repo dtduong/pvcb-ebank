@@ -13,9 +13,9 @@ spec:
     requests:
       cpu: 500m
       memory: 512Mi
-      ephemeral-storage: 3Gi      
+      ephemeral-storage: 5Gi      
   applicationImage: >-
-    quay.io/dtduong/ebank-transaction-rule-check
+    quay.io/dtduong/ebank-transaction-rule-check:1.0.3
   pullPolicy: Always
   replicas: 1
   applicationName: ebank-transaction-rule-check
