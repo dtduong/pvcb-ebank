@@ -12,8 +12,7 @@ spec:
     requests:
       cpu: 500m
       memory: 1024Mi
-  applicationImage: >-
-    ebank-scheduler
+  applicationImage: ebank-scheduler
   env:
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@118.69.69.160:1521/ebank"

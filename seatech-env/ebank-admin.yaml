@@ -12,8 +12,7 @@ spec:
     requests:
       cpu: 500m
       memory: 1024Mi
-  applicationImage: >-
-    quay.io/dtduong/ebank-admin:1.0.0
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.0
   env:
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@192.168.1.89:1521/ebank"

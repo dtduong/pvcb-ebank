@@ -12,8 +12,7 @@ spec:
     requests:
       cpu: 500m
       memory: 1024Mi
-  applicationImage: >-
-    ebank-api-server
+  applicationImage: ebank-api-server
   pullPolicy: IfNotPresent
   replicas: 1
   applicationName: ebank-api-server

@@ -12,8 +12,7 @@ spec:
     requests:
       cpu: 500m
       memory: 1024Mi
-  applicationImage: >-
-    quay.io/dtduong/ebank-admin:1.0.2
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.3
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

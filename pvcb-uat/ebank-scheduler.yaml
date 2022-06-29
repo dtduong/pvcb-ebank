@@ -14,7 +14,7 @@ spec:
       cpu: 500m
       memory: 500Mi
       ephemeral-storage: 5Gi
-  applicationImage: 'quay.io/dtduong/ebank-scheduler:1.0.2'
+  applicationImage: quay.io/dtduong/ebank-scheduler:1.0.3
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
