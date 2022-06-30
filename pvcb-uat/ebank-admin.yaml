@@ -35,9 +35,9 @@ spec:
     - name: UrlAuthGateWay
       value: "http://10.0.15.50"
     - name: UrlPrivateKey
-      value: "signature/privateKeyIDVN_UAT.key"
+      value: "signature/privateKeyEBANK_UAT.key"
     - name: UrlPublicKey
-      value: "signature/publicKeyIDVN_UAT.pub"
+      value: "signature/publicKeyEBANK_UAT.pub"
     - name: UrlCheckRule
       value: "http://ebank-transaction-rule-check-nhs-app-ibkhdn-uat.apps.ocp4-dev03.pvcomtestocp.com/ebank-transaction-rule-check/checkRule"
     - name: CheckTransRuleAPI
