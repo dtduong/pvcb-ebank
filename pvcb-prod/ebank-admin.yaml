@@ -1,0 +1,73 @@
+﻿apiVersion: apps.openliberty.io/v1beta2
+kind: OpenLibertyApplication
+metadata:
+  name: ebank-admin
+  namespace: nhs-app-ibkhdn-uat
+spec:
+  expose: true
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 4096Mi
+    requests:
+      cpu: 500m
+      memory: 1024Mi
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.3
+  env:
+    - name: DB_PASSWORD_ENCRYPT
+      value: "true"
+    - name: DB_CONNECTION
+      value: "jdbc:oracle:thin:@10.0.15.15:1521/khdn"
+    - name: DB_USER
+      value: "test"
+    - name: DB_PASS
+      value: "SwURn3tW/UsVi6JgwtJtEQ==****"
+    - name: retailURL
+      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/"
+    - name: corpURL
+      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
+    - name: adminURL
+      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
+    - name: OTPControl
+      value: "open"
+    - name: UrlGateWay
+      value: "http://10.0.15.140:8081/IBRestService/system"
+    - name: UrlAuthGateWay
+      value: "http://10.0.15.50"
+    - name: UrlPrivateKey
+      value: "signature/privateKeyEBANK_UAT.key"
+    - name: UrlPublicKey
+      value: "signature/publicKeyEBANK_UAT.pub"
+    - name: UrlCheckRule
+      value: "http://ebank-transaction-rule-check-nhs-app-ibkhdn-uat.apps.ocp4-dev03.pvcomtestocp.com/ebank-transaction-rule-check/checkRule"
+    - name: CheckTransRuleAPI
+      value: "true"
+    - name: RequestType_API
+      value: "prod"
+    - name: FolderLogTimeFormat
+      value: "dd-MM-yyyy"
+    - name: UrlBillingTopUpGateWay
+      value: "http://192.168.15.130:8080/PGService/outwardservice"
+    - name: BillingTopUpWrapper
+      value: "http://pgservice.pvcombank.com.vn"
+    - name: host
+      value: "http://10.0.15.140:8081"
+    - name: hostSMS
+      value: "http://10.0.15.68:8080"
+    - name: linkPointVN
+      value: "https://www.pvcombank.com.vn/san-pham/ca-nhan/dich-vu-the/the-pvcombank-mastercard-platinum"
+    - name: linkPointEN
+      value: "https://www.pvcombank.com.vn/san-pham/ca-nhan/dich-vu-the/the-pvcombank-mastercard-platinum"
+    - name: APICheckLogin
+      value: "N"
+    - name: EnableSMSOTP
+      value: "N"
+    - name: isCheckOTP
+      value: "false"      
+    - name: KafkaBootstrpServers
+      value: "10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092"
+    - name: KafkaTopic
+      value: "uat.notification.sendmail.1"
+  pullPolicy: Always
+  replicas: 1
+  applicationName: ebank-admin

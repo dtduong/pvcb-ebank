@@ -1,0 +1,21 @@
+﻿apiVersion: apps.openliberty.io/v1beta2
+kind: OpenLibertyApplication
+metadata:
+  name: ebank-transaction-rule-check
+  namespace: nhs-app-ibkhdn-uat
+spec:
+  expose: true
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2048Mi
+      ephemeral-storage: 5Gi      
+    requests:
+      cpu: 500m
+      memory: 512Mi
+      ephemeral-storage: 5Gi      
+  applicationImage: >-
+    quay.io/dtduong/ebank-transaction-rule-check:1.0.3
+  pullPolicy: Always
+  replicas: 1
+  applicationName: ebank-transaction-rule-check
