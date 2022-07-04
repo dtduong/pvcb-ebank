@@ -67,9 +67,9 @@ spec:
     - name: isCheckOTP
       value: 'false'
     - name: KafkaBootstrpServers
-      value: '10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092'
+      value: "kafka-cluster-kafka-external-bootstrap.kafka.svc.cluster.local"
     - name: KafkaTopic
-      value: uat.notification.sendmail.1
+      value: "prod.notification.sendmail.1"
     - name: appId
       value: IB
     - name: sysCode
