@@ -22,9 +22,9 @@ spec:
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@10.0.35.162:1521/khdn"
     - name: DB_USER
-      value: "test"
+      value: "khdn"
     - name: DB_PASS
-      value: "SwURn3tW/UsVi6JgwtJtEQ==****"
+      value: "Mvi7heVtiV72hynN3NLzOg==****"
     - name: retailURL
       value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/"
     - name: corpURL
