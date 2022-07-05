@@ -65,7 +65,7 @@ spec:
     - name: isCheckOTP
       value: "false"      
     - name: KafkaBootstrpServers
-      value: "http://kafka-cluster-kafka-external-bootstrap.kafka.svc.cluster.local:9094"
+      value: "kafka-cluster-kafka-external-bootstrap.kafka.svc.cluster.local:9094"
     - name: KafkaTopic
       value: "prod.notification.sendmail.1"
   pullPolicy: Always
