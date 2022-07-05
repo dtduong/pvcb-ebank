@@ -35,7 +35,7 @@ spec:
     - name: corpURL
       value: "https://digitalbanking.pvcombank.com.vn/corp/"
     - name: adminURL
-      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
+      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/admin/"
     - name: OTPControl
       value: "open"
     - name: UrlGateWay
@@ -90,3 +90,5 @@ spec:
       value: "30"
     - name: IPAuthSecret
       value: "t0p s3cr3t"      
+    - name: IPAuthExpiredMilisec
+      value: "86400000"
