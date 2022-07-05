@@ -1,0 +1,16 @@
+
+1. Extract cert external route default (nếu chưa có) và format link external route
+	oc get secrets -n openshift-ingress
+	oc extract secret/<YOUR-TLS-SECRET-NAME> --to - -n openshift-ingress
+	oc extract secret/<YOUR-TLS-SECRET-NAME> --to=/tmp -n openshift-ingress
+2. Copy cert và external route ocp default vào file yaml ssl
+	
+3. Apply quy trình CD
+4. Kiểm tra app có lên giao diện hay không?
+5. Copy log 
+VD Scheduler
+	oc exec  -n app-nhs-ib-khdn  <ebank-scheduler-66c4dd85b9-zbq47>  -- tar cf - logs/ | tar xf - -C d:\CTY\Seatech\PVCombank\logs\log-sche\
+	oc exec  -n app-nhs-ib-khdn  <ebank-scheduler-66c4dd85b9-zbq47>  -- tar cf - /output/logs | tar xf - -C d:\CTY\Seatech\PVCombank\logs\log-sche\
+	
+
+	

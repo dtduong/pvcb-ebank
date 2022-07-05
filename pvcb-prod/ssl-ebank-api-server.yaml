@@ -2,11 +2,11 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: ebank-api-server-https
-  namespace: nhs-app-ibkhdn-uat
+  namespace: app-nhs-ib-khdn
   annotations:
     haproxy.router.openshift.io/timeout: 3m
 spec:
-  host: ebank-api-server.apps-ext.ocp4-dev03.pvcomtestocp.com
+  host: ebank-api-server.cloud-sg.pvcombank.com.vn
   to:
     kind: Service
     name: ebank-api-server
@@ -139,19 +139,3 @@ spec:
       15ZEKcNV8J9TWjX/ljEwmzGvkHANetn9PF+kMjtI8FyyavnyRzGQMw==
       -----END RSA PRIVATE KEY-----
   wildcardPolicy: None
-status:
-  ingress:
-    - host: ebank-api-server.apps-ext.ocp4-dev03.pvcomtestocp.com
-      routerName: external
-      conditions:
-        - type: Admitted
-          status: 'True'
-      wildcardPolicy: None
-      routerCanonicalHostname: apps-ext.ocp4-dev03.pvcomtestocp.com
-    - host: ebank-api-server.ocp4-dev03.pvcomtestocp.com
-      routerName: default
-      conditions:
-        - type: Admitted
-          status: 'True'
-      wildcardPolicy: None
-      routerCanonicalHostname: apps.ocp4-dev03.pvcomtestocp.com

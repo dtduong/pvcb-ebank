@@ -2,17 +2,22 @@
 kind: OpenLibertyApplication
 metadata:
   name: ebank-admin
-  namespace: nhs-app-ibkhdn-uat
+  namespace: app-nhs-ib-khdn
 spec:
   expose: true
   resources:
     limits:
       cpu: 4000m
-      memory: 4096Mi
+      memory: 4Gi
+      ephemeral-storage: 20Gi
     requests:
-      cpu: 500m
-      memory: 1024Mi
+      cpu: 1000m
+      memory: 2Gi
+      ephemeral-storage: 20Gi
   applicationImage: quay.io/dtduong/ebank-admin:1.0.3
+  pullPolicy: Always
+  replicas: 1
+  applicationName: ebank-admin
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
@@ -25,7 +30,7 @@ spec:
     - name: retailURL
       value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/"
     - name: corpURL
-      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
+      value: "https://digitalbanking.pvcombank.com.vn/corp/"
     - name: adminURL
       value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
     - name: OTPControl
@@ -68,6 +73,4 @@ spec:
       value: "kafka-cluster-kafka-external-bootstrap.kafka.svc.cluster.local:9094"
     - name: KafkaTopic
       value: "prod.notification.sendmail.1"
-  pullPolicy: Always
-  replicas: 1
-  applicationName: ebank-admin
+

@@ -2,19 +2,24 @@
 kind: OpenLibertyApplication
 metadata:
   name: ebank-api-server
-  namespace: nhs-app-ibkhdn-uat
+  namespace: app-nhs-ib-khdn
 spec:
   expose: true
   resources:
     limits:
-      cpu: 4000m
-      memory: 4096Mi
+      cpu: 2000m
+      memory: 2Gi
+      ephemeral-storage: 10Gi
     requests:
       cpu: 500m
-      memory: 1024Mi
-  applicationImage: quay.io/dtduong/ebank-api-server:1.0.3
-  pullPolicy: IfNotPresent
+      memory: 1Gi
+      ephemeral-storage: 10Gi
+  autoscaling:
+    maxReplicas: 3
+    minReplicas: 1
   replicas: 1
+  applicationImage: quay.io/dtduong/ebank-api-server:1.0.3
+  pullPolicy: Always
   applicationName: ebank-api-server
   env:
     - name: DB_PASSWORD_ENCRYPT
@@ -28,7 +33,7 @@ spec:
     - name: retailURL
       value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/"
     - name: corpURL
-      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
+      value: "https://digitalbanking.pvcombank.com.vn/corp/"
     - name: adminURL
       value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
     - name: OTPControl

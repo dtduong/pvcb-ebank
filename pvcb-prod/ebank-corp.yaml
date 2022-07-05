@@ -1,17 +1,23 @@
 ﻿apiVersion: apps.openliberty.io/v1beta2
 kind: OpenLibertyApplication
 metadata:
-  namespace: nhs-app-ibkhdn-uat
+  namespace: nhs-app-ibkhdn
   name: ebank-corp
 spec:
   expose: true
   resources:
     limits:
       cpu: 4000m
-      memory: 4096Mi
+      memory: 4Gi
+      ephemeral-storage: 20Gi
     requests:
-      memory: 1024Mi
-      cpu: 500m
+      cpu: 1000m
+      memory: 2Gi
+      ephemeral-storage: 20Gi
+  autoscaling:
+    maxReplicas: 3
+    minReplicas: 2
+  replicas: 2
   applicationImage: quay.io/dtduong/ebank-corp:1.0.4
   env:
     - name: DB_PASSWORD_ENCRYPT
@@ -25,7 +31,7 @@ spec:
     - name: retailURL
       value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/"
     - name: corpURL
-      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
+      value: "https://digitalbanking.pvcombank.com.vn/corp/"
     - name: adminURL
       value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
     - name: OTPControl
@@ -65,5 +71,4 @@ spec:
     - name: isCheckOTP
       value: "false"
   pullPolicy: IfNotPresent
-  replicas: 1
   applicationName: ebank-corp
