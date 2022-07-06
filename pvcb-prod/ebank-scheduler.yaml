@@ -3,6 +3,8 @@ kind: OpenLibertyApplication
 metadata:
   namespace: app-nhs-ib-khdn
   name: ebank-scheduler
+  labels:
+    app: ebank-scheduler
 spec:
   expose: true
   resources:
@@ -22,9 +24,6 @@ spec:
   applicationImage: quay.io/dtduong/ebank-scheduler:1.0.5
   pullPolicy: Always
   applicationName: ebank-scheduler
-  labels:
-    app: ebank-scheduler
-
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

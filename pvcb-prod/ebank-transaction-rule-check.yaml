@@ -3,6 +3,8 @@ kind: OpenLibertyApplication
 metadata:
   name: ebank-transaction-rule-check
   namespace: app-nhs-ib-khdn
+  labels:
+    app: ebank-transaction-rule-check
 spec:
   expose: true
   resources:
@@ -23,5 +25,3 @@ spec:
     targetCPUUtilizationPercentage: 70  
   replicas: 1
   applicationName: ebank-transaction-rule-check
-  labels:
-    app: ebank-transaction-rule-check

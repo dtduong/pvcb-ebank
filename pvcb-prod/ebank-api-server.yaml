@@ -3,6 +3,9 @@ kind: OpenLibertyApplication
 metadata:
   name: ebank-api-server
   namespace: app-nhs-ib-khdn
+  labels:
+    app: ebank-api-server
+
 spec:
   expose: true
   resources:
@@ -22,8 +25,6 @@ spec:
   applicationImage: quay.io/dtduong/ebank-api-server:1.0.5
   pullPolicy: Always
   applicationName: ebank-api-server
-  labels:
-    app: ebank-api-server
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

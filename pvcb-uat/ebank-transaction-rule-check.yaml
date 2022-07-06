@@ -3,23 +3,18 @@ kind: OpenLibertyApplication
 metadata:
   name: ebank-transaction-rule-check
   namespace: nhs-app-ibkhdn-uat
-  autoscaling:
-    maxReplicas: 2
-    minReplicas: 1
-    targetCPUUtilizationPercentage: 70  
-  applicationImage: >-
-    quay.io/dtduong/ebank-transaction-rule-check:1.0.3
-  pullPolicy: Always
-  replicas: 1
-  applicationName: ebank-transaction-rule-check
   labels:
     app: ebank-transaction-rule-check
-  autoscaling:
-    maxReplicas: 3
-    minReplicas: 1
-    targetCPUUtilizationPercentage: 70  
 spec:
+  autoscaling:
+    maxReplicas: 2
+    minReplicas: 2
+    targetCPUUtilizationPercentage: 70  
+  pullPolicy: Always
+  replicas: 2
+  applicationName: ebank-transaction-rule-check
   expose: true
+  applicationImage: quay.io/dtduong/ebank-transaction-rule-check:1.0.3
   resources:
     limits:
       cpu: 2000m

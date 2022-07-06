@@ -3,6 +3,8 @@ kind: OpenLibertyApplication
 metadata:
   name: ebank-admin
   namespace: app-nhs-ib-khdn
+  labels:
+    app: ebank-admin
 spec:
   expose: true
   resources:
@@ -22,8 +24,6 @@ spec:
     targetCPUUtilizationPercentage: 70
   replicas: 1
   applicationName: ebank-admin
-  labels:
-    app: ebank-admin
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

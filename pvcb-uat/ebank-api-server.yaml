@@ -3,6 +3,8 @@ kind: OpenLibertyApplication
 metadata:
   name: ebank-api-server
   namespace: nhs-app-ibkhdn-uat
+  labels:
+    app: ebank-api-server
 spec:
   expose: true
   resources:
@@ -20,8 +22,6 @@ spec:
     targetCPUUtilizationPercentage: 70  
   replicas: 1
   applicationName: ebank-api-server
-  labels:
-    app: ebank-api-server
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

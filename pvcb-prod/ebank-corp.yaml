@@ -3,6 +3,9 @@ kind: OpenLibertyApplication
 metadata:
   namespace: nhs-app-ibkhdn
   name: ebank-corp
+  labels:
+    app: ebank-corp
+
 spec:
   expose: true
   resources:
@@ -22,8 +25,6 @@ spec:
   applicationImage: quay.io/dtduong/ebank-corp:1.0.4
   pullPolicy: Always
   applicationName: ebank-corp
-  labels:
-    app: ebank-corp
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
