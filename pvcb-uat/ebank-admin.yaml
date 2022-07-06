@@ -20,6 +20,8 @@ spec:
   replicas: 1
   applicationName: ebank-admin
   applicationImage: quay.io/dtduong/ebank-admin:1.0.5
+  labels:
+    app: ebank-admin
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

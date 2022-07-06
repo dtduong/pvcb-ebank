@@ -22,6 +22,8 @@ spec:
   applicationImage: quay.io/dtduong/ebank-api-server:1.0.5
   pullPolicy: Always
   applicationName: ebank-api-server
+  labels:
+    app: ebank-api-server
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
@@ -74,7 +76,7 @@ spec:
     - name: isCheckOTP
       value: "false"      
     - name: KafkaBootstrpServers
-      value: "kafka-cluster-kafka-external-bootstrap.kafka.svc.cluster.local:9094"
+      value: "10.0.73.11:32100,10.0.73.12:32100,10.0.73.21:32100,10.0.73.22:32100,10.0.73.23:32100,10.0.73.24:32100,10.0.73.25:32100,10.0.73.26:32100,10.0.73.27:32100"
     - name: KafkaTopic
       value: "prod.notification.sendmail.1"
     - name: appId

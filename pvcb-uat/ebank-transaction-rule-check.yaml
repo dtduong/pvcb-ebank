@@ -12,6 +12,12 @@ metadata:
   pullPolicy: Always
   replicas: 1
   applicationName: ebank-transaction-rule-check
+  labels:
+    app: ebank-transaction-rule-check
+  autoscaling:
+    maxReplicas: 3
+    minReplicas: 1
+    targetCPUUtilizationPercentage: 70  
 spec:
   expose: true
   resources:

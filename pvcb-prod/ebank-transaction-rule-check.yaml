@@ -17,5 +17,11 @@ spec:
   applicationImage: >-
     quay.io/dtduong/ebank-transaction-rule-check:1.0.3
   pullPolicy: Always
+  autoscaling:
+    maxReplicas: 3
+    minReplicas: 1
+    targetCPUUtilizationPercentage: 70  
   replicas: 1
   applicationName: ebank-transaction-rule-check
+  labels:
+    app: ebank-transaction-rule-check

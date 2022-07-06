@@ -20,6 +20,8 @@ spec:
     targetCPUUtilizationPercentage: 70  
   replicas: 1
   applicationName: ebank-api-server
+  labels:
+    app: ebank-api-server
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

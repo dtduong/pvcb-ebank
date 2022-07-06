@@ -20,6 +20,10 @@ spec:
     targetCPUUtilizationPercentage: 70    
   replicas: 2
   applicationImage: quay.io/dtduong/ebank-corp:1.0.4
+  pullPolicy: Always
+  applicationName: ebank-corp
+  labels:
+    app: ebank-corp
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
@@ -75,5 +79,4 @@ spec:
       value: "t0p s3cr3t"
     - name: IPAuthExpiredMilisec
       value: "86400000"
-  pullPolicy: IfNotPresent
-  applicationName: ebank-corp
+
