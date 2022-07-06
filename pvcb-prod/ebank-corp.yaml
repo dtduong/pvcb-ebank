@@ -5,7 +5,6 @@ metadata:
   name: ebank-corp
   labels:
     app: ebank-corp
-
 spec:
   expose: true
   resources:
@@ -22,7 +21,7 @@ spec:
     minReplicas: 2
     targetCPUUtilizationPercentage: 70    
   replicas: 2
-  applicationImage: quay.io/dtduong/ebank-corp:1.0.4
+  applicationImage: quay.io/dtduong/ebank-corp:1.0.5
   pullPolicy: Always
   applicationName: ebank-corp
   env:
