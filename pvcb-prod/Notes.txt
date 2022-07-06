@@ -1,6 +1,7 @@
 
 1. Extract cert external route default (nếu chưa có) và format link external route
 	oc get secrets -n openshift-ingress
+	//Tìm đúng external secret
 	oc extract secret/<YOUR-TLS-SECRET-NAME> --to - -n openshift-ingress
 	oc extract secret/<YOUR-TLS-SECRET-NAME> --to=/tmp -n openshift-ingress
 2. Copy cert và external route ocp default vào file yaml ssl

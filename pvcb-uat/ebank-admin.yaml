@@ -12,7 +12,14 @@ spec:
     requests:
       cpu: 500m
       memory: 1024Mi
-  applicationImage: quay.io/dtduong/ebank-admin:1.0.3
+  autoscaling:
+    maxReplicas: 2
+    minReplicas: 1
+    targetCPUUtilizationPercentage: 70            
+  pullPolicy: Always
+  replicas: 1
+  applicationName: ebank-admin
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.5
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
@@ -23,11 +30,11 @@ spec:
     - name: DB_PASS
       value: "SwURn3tW/UsVi6JgwtJtEQ==****"
     - name: retailURL
-      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/"
+      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/"
     - name: corpURL
-      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
+      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/"
     - name: adminURL
-      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
+      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/"
     - name: OTPControl
       value: "open"
     - name: UrlGateWay
@@ -68,6 +75,4 @@ spec:
       value: "10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092"
     - name: KafkaTopic
       value: "uat.notification.sendmail.1"
-  pullPolicy: Always
-  replicas: 1
-  applicationName: ebank-admin
+

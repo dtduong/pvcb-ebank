@@ -12,8 +12,12 @@ spec:
     requests:
       cpu: 500m
       memory: 1024Mi
-  applicationImage: quay.io/dtduong/ebank-api-server:1.0.3
+  applicationImage: quay.io/dtduong/ebank-api-server:1.0.5
   pullPolicy: IfNotPresent
+  autoscaling:
+    maxReplicas: 2
+    minReplicas: 1
+    targetCPUUtilizationPercentage: 70  
   replicas: 1
   applicationName: ebank-api-server
   env:
@@ -26,11 +30,11 @@ spec:
     - name: DB_PASS
       value: "SwURn3tW/UsVi6JgwtJtEQ==****"
     - name: retailURL
-      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/"
+      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/"
     - name: corpURL
-      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
+      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/"
     - name: adminURL
-      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
+      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/"
     - name: OTPControl
       value: "open"
     - name: UrlGateWay

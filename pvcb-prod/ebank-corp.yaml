@@ -17,6 +17,7 @@ spec:
   autoscaling:
     maxReplicas: 3
     minReplicas: 2
+    targetCPUUtilizationPercentage: 70    
   replicas: 2
   applicationImage: quay.io/dtduong/ebank-corp:1.0.4
   env:
@@ -31,9 +32,9 @@ spec:
     - name: retailURL
       value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/"
     - name: corpURL
-      value: "https://digitalbanking.pvcombank.com.vn/corp/"
+      value: "https://digitalbanking.pvcombank.com.vn/"
     - name: adminURL
-      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/admin/"
+      value: "https://ebank-admin.apps.aws-southeast-prod01.pvcombank.io/"
     - name: OTPControl
       value: "open"
     - name: UrlGateWay

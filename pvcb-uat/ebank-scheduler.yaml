@@ -14,7 +14,14 @@ spec:
       cpu: 500m
       memory: 500Mi
       ephemeral-storage: 5Gi
-  applicationImage: quay.io/dtduong/ebank-scheduler:1.0.3
+  pullPolicy: Always
+  autoscaling:
+    maxReplicas: 2
+    minReplicas: 1
+    targetCPUUtilizationPercentage: 70
+  replicas: 1
+  applicationName: ebank-scheduler
+  applicationImage: quay.io/dtduong/ebank-scheduler:1.0.5
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
@@ -25,11 +32,11 @@ spec:
     - name: DB_PASS
       value: "SwURn3tW/UsVi6JgwtJtEQ==****"
     - name: retailURL
-      value: 'https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSRetail/'
+      value: 'https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/'
     - name: corpURL
-      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSCorporate/"
+      value: "https://ebank-corp.apps-ext.ocp4-dev03.pvcomtestocp.com/"
     - name: adminURL
-      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/IBSAdmin/"
+      value: "https://ebank-admin.apps-ext.ocp4-dev03.pvcomtestocp.com/"
     - name: OTPControl
       value: open
     - name: UrlGateWay
@@ -86,6 +93,4 @@ spec:
       value: '30'
     - name: IPAuthSecret
       value: t0p s3cr3t
-  pullPolicy: Always
-  replicas: 1
-  applicationName: ebank-scheduler
+
