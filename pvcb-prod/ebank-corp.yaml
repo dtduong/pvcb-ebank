@@ -75,6 +75,10 @@ spec:
       value: "N"
     - name: isCheckOTP
       value: "false"
+    - name: KafkaBootstrpServers
+      value: "k8kafka.pvcb.vn:9094"
+    - name: KafkaTopic
+      value: "prod.notification.sendmail.1"
     - name: IPAuthSecret
       value: "t0p s3cr3t"
     - name: IPAuthExpiredMilisec

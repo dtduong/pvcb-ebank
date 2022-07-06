@@ -76,7 +76,7 @@ spec:
     - name: isCheckOTP
       value: 'false'
     - name: KafkaBootstrpServers
-      value: "10.0.73.21:32100,10.0.73.22:32100,10.0.73.23:32100,10.0.73.24:32100,10.0.73.25:32100,10.0.73.26:32100,10.0.73.27:32100"
+      value: "k8kafka.pvcb.vn:9094"
     - name: KafkaTopic
       value: "prod.notification.sendmail.1"
     - name: appId
