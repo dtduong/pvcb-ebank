@@ -21,7 +21,7 @@ spec:
   pullPolicy: Always
   replicas: 1
   applicationName: ebank-admin
-  applicationImage: quay.io/dtduong/ebank-admin:1.0.5
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.6
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
@@ -77,4 +77,9 @@ spec:
       value: "10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092"
     - name: KafkaTopic
       value: "uat.notification.sendmail.1"
-
+    - name: IPAuthSecret
+      value: "t0p s3cr3t"      
+    - name: IPAuthExpiredMilisec
+      value: "86400000"
+    - name: IPAuthSecretEncrypted
+      value: "false"      
