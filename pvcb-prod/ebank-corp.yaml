@@ -62,7 +62,7 @@ spec:
     - name: BillingTopUpWrapper
       value: "http://pgservice.pvcombank.com.vn"
     - name: host
-      value: "http://esb.pvcv.vn:8081"
+      value: "http://esb.pvcb.vn:8081"
     - name: hostSMS
       value: "http://10.0.25.79:8080"
     - name: linkPointVN
