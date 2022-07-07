@@ -42,7 +42,7 @@ spec:
     - name: OTPControl
       value: "open"
     - name: UrlGateWay
-      value: "http://esb.pvcv.vn:8081/IBRestService/system"
+      value: "http://esb.pvcb.vn:8081/IBRestService/system"
     - name: UrlAuthGateWay
       value: "http://mfa.pvcb.vn"
     - name: UrlPrivateKey
