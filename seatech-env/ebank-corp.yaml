@@ -11,17 +11,17 @@ spec:
       memory: 4096Mi
     requests:
       memory: 1024Mi
-      cpu: 500m
-  applicationVersion: 1.0.0
-  applicationImage: quay.io/dtduong/ebank-corp:1.0.0
+      cpu: 2000m
+  autoscaling:
+    maxReplicas: 2
+    minReplicas: 1
+    targetCPUUtilizationPercentage: 70      
+  replicas: 1
+  applicationImage: quay.io/dtduong/ebank-corp:1.0.7
+  pullPolicy: Always
+  applicationName: ebank-corp
   env:
-    - name: DB_CONNECTION
-      value: "jdbc:oracle:thin:@118.69.69.160:1522/EBANK"
-    - name: DB_USER
-      value: "UAT"
-    - name: DB_PASS
-      value: "admin"
-    - name: retailURL
+     - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
       value: "https://103.121.91.49/IBSCorporate/"
@@ -65,6 +65,13 @@ spec:
       value: "N"
     - name: isCheckOTP
       value: "false"      
-  pullPolicy: Always
-  replicas: 1
-  applicationName: ebank-corp
+    - name: secretKey
+      value: 1389098f4a9bc5ea4554d82d44730d530fd83dfad5eaaa31b8f18751ca05f63a
+    - name: tokenExpireTime
+      value: '30'
+    - name: IPAuthSecret
+      value: "t0p s3cr3t"
+    - name: Servtype
+      value: "ACAST01"
+    - name: IPAuthSecretEncrypted
+      value: "false"
