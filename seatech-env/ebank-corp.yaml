@@ -21,7 +21,7 @@ spec:
   pullPolicy: Always
   applicationName: ebank-corp
   env:
-     - name: retailURL
+    - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
       value: "https://103.121.91.49/IBSCorporate/"
