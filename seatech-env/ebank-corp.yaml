@@ -21,6 +21,14 @@ spec:
   pullPolicy: Always
   applicationName: ebank-corp
   env:
+    - name: DB_PASSWORD_ENCRYPT
+      value: "true"
+    - name: DB_CONNECTION
+      value: "jdbc:oracle:thin:@192.168.10.159:1521/EBANK"
+    - name: DB_USER
+      value: "test"
+    - name: DB_PASS
+      value: "Tewr1vs3s5FEnNUZHMudpA==****"
     - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
@@ -36,9 +44,9 @@ spec:
     - name: UrlAuthGateWay
       value: "hhttp://103.121.91.49:8083"
     - name: UrlPrivateKey
-      value: "signature/privateKeyIDVN_UAT.key"
+      value: "signature/privateKeyEBANK_UAT.key"
     - name: UrlPublicKey
-      value: "signature/publicKeyIDVN_UAT.pub"
+      value: "signature/publicKeyEBANK_UAT.pub"
     - name: UrlCheckRule
       value: "http://192.168.1.209:9099/IBS-TransactionRule-Check/checkRule"
     - name: CheckTransRuleAPI

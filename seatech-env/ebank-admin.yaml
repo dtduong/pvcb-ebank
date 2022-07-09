@@ -10,16 +10,25 @@ spec:
       cpu: 4000m
       memory: 4096Mi
     requests:
-      cpu: 500m
       memory: 1024Mi
-  applicationImage: quay.io/dtduong/ebank-admin:1.0.0
+      cpu: 2000m
+  autoscaling:
+    maxReplicas: 2
+    minReplicas: 1
+    targetCPUUtilizationPercentage: 70      
+  pullPolicy: Always
+  replicas: 1
+  applicationName: ebank-admin
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.7
   env:
+    - name: DB_PASSWORD_ENCRYPT
+      value: "true"
     - name: DB_CONNECTION
-      value: "jdbc:oracle:thin:@192.168.1.89:1521/ebank"
+      value: "jdbc:oracle:thin:@192.168.10.159:1521/EBANK"
     - name: DB_USER
       value: "test"
     - name: DB_PASS
-      value: "test"
+      value: "Tewr1vs3s5FEnNUZHMudpA==****"
     - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
@@ -35,9 +44,9 @@ spec:
     - name: UrlAuthGateWay
       value: "hhttp://103.121.91.49:8083"
     - name: UrlPrivateKey
-      value: "signature/privateKeyIDVN_UAT.key"
+      value: "signature/privateKeyEBANK_UAT.key"
     - name: UrlPublicKey
-      value: "signature/publicKeyIDVN_UAT.pub"
+      value: "signature/publicKeyEBANK_UAT.pub"
     - name: UrlCheckRule
       value: "http://192.168.1.209:9099/IBS-TransactionRule-Check/checkRule"
     - name: CheckTransRuleAPI
@@ -64,6 +73,9 @@ spec:
       value: "N"
     - name: isCheckOTP
       value: "false"
-  pullPolicy: Always
-  replicas: 1
-  applicationName: ebank-admin
+    - name: IPAuthSecret
+      value: "t0p s3cr3t"
+    - name: Servtype
+      value: "ACAST01"
+    - name: IPAuthSecretEncrypted
+      value: "false"      
