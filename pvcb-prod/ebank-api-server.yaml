@@ -14,7 +14,7 @@ spec:
       memory: 2Gi
       ephemeral-storage: 10Gi
     requests:
-      cpu: 500m
+      cpu: 2000m
       memory: 1Gi
       ephemeral-storage: 10Gi
   autoscaling:
@@ -22,7 +22,7 @@ spec:
     minReplicas: 1
     targetCPUUtilizationPercentage: 70      
   replicas: 1
-  applicationImage: quay.io/dtduong/ebank-api-server:1.0.6
+  applicationImage: quay.io/dtduong/ebank-api-server:1.0.8
   pullPolicy: Always
   applicationName: ebank-api-server
   env:

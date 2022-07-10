@@ -14,7 +14,7 @@ spec:
   replicas: 1
   applicationName: ebank-transaction-rule-check
   expose: true
-  applicationImage: quay.io/dtduong/ebank-transaction-rule-check:1.0.6
+  applicationImage: quay.io/dtduong/ebank-transaction-rule-check:1.0.8
   resources:
     limits:
       cpu: 2000m

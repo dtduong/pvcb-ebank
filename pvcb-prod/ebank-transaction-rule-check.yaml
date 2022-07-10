@@ -17,7 +17,7 @@ spec:
       memory: 512Mi
       ephemeral-storage: 5Gi      
   applicationImage: >-
-    quay.io/dtduong/ebank-transaction-rule-check:1.0.3
+    quay.io/dtduong/ebank-transaction-rule-check:1.0.8
   pullPolicy: Always
   autoscaling:
     maxReplicas: 3

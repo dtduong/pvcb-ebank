@@ -12,14 +12,14 @@ spec:
       cpu: 4000m
       memory: 4096Mi
     requests:
-      memory: 1024Mi
-      cpu: 500m
+      memory: 2024Mi
+      cpu: 100m
   autoscaling:
     maxReplicas: 2
     minReplicas: 1
     targetCPUUtilizationPercentage: 70      
   replicas: 1
-  applicationImage: quay.io/dtduong/ebank-corp:1.0.7
+  applicationImage: quay.io/dtduong/ebank-corp:1.0.8
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

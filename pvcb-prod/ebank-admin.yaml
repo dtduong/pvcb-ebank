@@ -13,10 +13,10 @@ spec:
       memory: 4Gi
       ephemeral-storage: 20Gi
     requests:
-      cpu: 1000m
+      cpu: 2000m
       memory: 2Gi
       ephemeral-storage: 20Gi
-  applicationImage: quay.io/dtduong/ebank-admin:1.0.7
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.8
   pullPolicy: Always
   autoscaling:
     maxReplicas: 2

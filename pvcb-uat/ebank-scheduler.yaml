@@ -13,17 +13,17 @@ spec:
       memory: 2048Mi
       ephemeral-storage: 5Gi
     requests:
-      cpu: 500m
-      memory: 500Mi
+      cpu: 2000m
+      memory: 1024Mi
       ephemeral-storage: 5Gi
   pullPolicy: Always
   autoscaling:
-    maxReplicas: 2
+    maxReplicas: 1
     minReplicas: 1
     targetCPUUtilizationPercentage: 70
   replicas: 1
   applicationName: ebank-scheduler
-  applicationImage: quay.io/dtduong/ebank-scheduler:1.0.6
+  applicationImage: quay.io/dtduong/ebank-scheduler:1.0.8
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
