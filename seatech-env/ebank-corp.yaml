@@ -17,7 +17,7 @@ spec:
     minReplicas: 1
     targetCPUUtilizationPercentage: 70      
   replicas: 1
-  applicationImage: quay.io/dtduong/ebank-corp:1.0.8
+  applicationImage: quay.io/dtduong/ebank-corp:1.0.9
   pullPolicy: Always
   applicationName: ebank-corp
   env:
