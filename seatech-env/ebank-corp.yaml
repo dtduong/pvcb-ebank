@@ -17,7 +17,7 @@ spec:
     minReplicas: 1
     targetCPUUtilizationPercentage: 70      
   replicas: 1
-  applicationImage: quay.io/dtduong/ebank-corp:1.0.7
+  applicationImage: quay.io/dtduong/ebank-corp:1.0.8
   pullPolicy: Always
   applicationName: ebank-corp
   env:
@@ -26,9 +26,9 @@ spec:
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@192.168.10.159:1521/EBANK"
     - name: DB_USER
-      value: "test"
+      value: "IBMB"
     - name: DB_PASS
-      value: "Tewr1vs3s5FEnNUZHMudpA==****"
+      value: "SwURn3tW/UsVi6JgwtJtEQ==****"
     - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
@@ -79,7 +79,14 @@ spec:
       value: '30'
     - name: IPAuthSecret
       value: "t0p s3cr3t"
-    - name: Servtype
-      value: "ACAST01"
+    - name: IPAuthExpiredMilisec
+      value: "86400000"
     - name: IPAuthSecretEncrypted
       value: "false"
+    - name: Servtype
+      value: "ACAST01"
+    - name: KafkaBootstrpServers
+      value: "10.0.15.126:9092,10.0.15.130:9092,10.0.15.132:9092"
+    - name: KafkaTopic
+      value: "uat.notification.sendmail.1"
+   

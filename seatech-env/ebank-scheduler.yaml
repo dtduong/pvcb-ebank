@@ -12,14 +12,16 @@ spec:
     requests:
       cpu: 500m
       memory: 1024Mi
-  applicationImage: ebank-scheduler
+  applicationImage: quay.io/dtduong/ebank-scheduler:1.0.8
   env:
+    - name: DB_PASSWORD_ENCRYPT
+      value: "true"
     - name: DB_CONNECTION
-      value: "jdbc:oracle:thin:@118.69.69.160:1521/ebank"
+      value: "jdbc:oracle:thin:@192.168.10.159:1521/EBANK"
     - name: DB_USER
-      value: "UAT"
+      value: "IBMB"
     - name: DB_PASS
-      value: "admin"
+      value: "SwURn3tW/UsVi6JgwtJtEQ==****"
     - name: retailURL
       value: "http://103.121.91.49:9091/IBSRetail/"
     - name: corpURL
@@ -81,7 +83,13 @@ spec:
     - name: tokenExpireTime
       value: "30"
     - name: IPAuthSecret
-      value: "t0p s3cr3t"     
+      value: "t0p s3cr3t"
+    - name: IPAuthExpiredMilisec
+      value: "86400000"
+    - name: IPAuthSecretEncrypted
+      value: "false"
+    - name: Servtype
+      value: "ACAST01" 
   pullPolicy: IfNotPresent
   replicas: 1
   applicationName: ebank-scheduler
