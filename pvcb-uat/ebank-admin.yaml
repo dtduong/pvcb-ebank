@@ -21,14 +21,14 @@ spec:
   pullPolicy: Always
   replicas: 1
   applicationName: ebank-admin
-  applicationImage: quay.io/dtduong/ebank-admin:1.0.8
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.13
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
     - name: DB_CONNECTION
       value: "jdbc:oracle:thin:@10.0.15.15:1521/khdn"
     - name: DB_USER
-      value: "test"
+      value: "IBMB_UAT"
     - name: DB_PASS
       value: "SwURn3tW/UsVi6JgwtJtEQ==****"
     - name: retailURL
