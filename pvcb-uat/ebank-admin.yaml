@@ -21,7 +21,7 @@ spec:
   pullPolicy: Always
   replicas: 1
   applicationName: ebank-admin
-  applicationImage: quay.io/dtduong/ebank-admin:1.0.13
+  applicationImage: quay.io/dtduong/ebank-admin:1.0.14
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

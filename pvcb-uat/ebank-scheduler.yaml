@@ -23,7 +23,7 @@ spec:
     targetCPUUtilizationPercentage: 70
   replicas: 1
   applicationName: ebank-scheduler
-  applicationImage: quay.io/dtduong/ebank-scheduler:1.0.9
+  applicationImage: quay.io/dtduong/ebank-scheduler:1.0.10
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"

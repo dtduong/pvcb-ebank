@@ -19,7 +19,7 @@ spec:
     minReplicas: 1
     targetCPUUtilizationPercentage: 70      
   replicas: 1
-  applicationImage: quay.io/dtduong/ebank-corp:1.0.16
+  applicationImage: quay.io/dtduong/ebank-corp:1.0.18
   env:
     - name: DB_PASSWORD_ENCRYPT
       value: "true"
