@@ -14,7 +14,7 @@ spec:
     requests:
       cpu: 500m
       memory: 1024Mi
-  applicationImage: quay.io/dtduong/ebank-api-server:1.0.8
+  applicationImage: quay.io/dtduong/ebank-api-server:1.0.10
   pullPolicy: IfNotPresent
   autoscaling:
     maxReplicas: 2
